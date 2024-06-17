@@ -5,7 +5,7 @@
     
     $servername = "localhost";
     $username = "root";
-    $password = "root";
+    $password = "";
     $dbname = "dtudocu";
     
     // Tạo kết nối
@@ -29,7 +29,7 @@
             echo "<td>0</td>";
             echo "<td><i class='fa-regular fa-thumbs-up'></i> None</td>";
             echo "<td><input type='checkbox' value='true'></td>";
-            echo "<td><input type='button' value='Xem tài liệu' class='btn_share'></td>";
+            echo "<td><input type='button' value='Chia sẻ tài liệu' class='btn_share'></td>";
             echo "<td><button type='button' class='btn_del'><i class='fa-solid fa-trash'></i></button></td>";
             echo "</tr>";
             }

@@ -23,23 +23,26 @@ $(document).ready(function() {
 
                     // Lấy tên file từ ô đầu tiên của hàng
                     var fileName = row.find('td:first-child').text();
-                    // Mã hóa URL tên file
-                    var encodedFileName = encodeURIComponent(fileName);
 
-                    // Gửi yêu cầu AJAX đến tệp PHP để lấy nội dung file
-                    $.ajax({
-                        url: 'php/getFileContent.php', // Đường dẫn đến tệp PHP để lấy nội dung file
-                        method: 'POST',
-                        data: { fileName: encodedFileName }, // Gửi tên file cần lấy nội dung
-                        success: function(data) {
-                            // Nếu yêu cầu thành công, hiển thị nội dung file cho người dùng
-                            console.log(fileName);
-                            alert(data);
-                        },
-                        error: function(jqXHR, textStatus, errorThrown) {
-                            // Nếu có lỗi, hiển thị thông báo lỗi
-                            alert("AJAX error: " + textStatus + ' : ' + errorThrown);
-                        }
+                     // Hiển thị form nhập email và lớp bao phủ
+                    $('#shareForm').removeClass('hidden');
+                    $('.overlay').show();
+
+                    $('.overlay').on('click', function() {
+                        $('#shareForm').addClass('hidden');
+                        $(this).hide();
+                    });
+
+                    $('#shareForm').on('submit', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    
+                        // Hiển thị thông báo chia sẻ thành công
+                        alert('Chia sẻ thành công!');
+                    
+                        // Ẩn form và lớp bao phủ
+                        $(this).addClass('hidden');
+                        $('.overlay').hide();
                     });
                 });
 
